@@ -2,7 +2,7 @@
 #     GlowingBlocks Plugin Configuration
 # ==========================================
 # Plugin by TremeQ using GlowingEntities API by SkytAsul
-# Version: 1.0.0
+# Version: 2.0.0
 
 # Rainbow Animation Settings
 rainbow:
@@ -69,14 +69,23 @@ messages:
   block-location: "&7Location: &e{x}, {y}, {z}"
   head-owner: "&7Head owner: &e{owner}"
   data-saved: "&aAll glowing data has been saved!"
-  data-reloaded: "&aConfiguration reloaded!"
+  data-reloaded: "&aConfiguration and saved effects reloaded!"
+  feature-disabled: "&cThis feature is disabled in config.yml."
+  aliases-disabled: "&cCommand aliases are disabled; use /{command}."
+  save-failed: "&cCould not save data. Check the server log."
+  reload-failed: "&cReload failed: {error}. Active settings and data were retained."
+  operation-failed: "&cCould not apply glow. Check the server log."
+  cooldown: "&cPlease wait before using this command again."
+  global-permission: "&cYou need glowingblocks.global to edit global effects."
+  headless-console: "&cThe console must specify global for NPC commands."
+  usage: "&cUsage: {usage}"
 
   # Help Messages
   help-header: "&6===== &bGlowingBlocks Help &6====="
-  help-glowblock: "&e/glowblock [color|rainbow] [global] &7- Make block glow"
-  help-unglowblock: "&e/unglowblock &7- Remove glow from block"
-  help-glownpc: "&e/glownpc <id|name> [color] [global] &7- Make NPC glow"
-  help-unglownpc: "&e/unglownpc <id|name> &7- Remove glow from NPC"
+  help-glowblock: "&e/glowblock [color|rainbow] [private|global] &7- Make block glow"
+  help-unglowblock: "&e/unglowblock [private|global] &7- Remove your private or a global effect"
+  help-glownpc: "&e/glownpc <id|name> [color|rainbow] [private|global] &7- Make NPC glow"
+  help-unglownpc: "&e/unglownpc <id|name> [private|global] &7- Remove NPC glow"
   help-list: "&e/ge list &7- Show glowing blocks count"
   help-save: "&e/ge save &7- Manually save data"
   help-reload: "&e/ge reload &7- Reload configuration"
@@ -86,6 +95,7 @@ messages:
   list-header: "&6===== Glowing Blocks ====="
   list-total: "&7Total: &e{total}"
   list-animated: "&7Animated: &d{animated}"
+  list-npcs: "&7NPC effects: &e{total}"
 
   # Version Message
   version-info: "&bGlowingBlocks &7v{version} &7by &eTremeQ"
@@ -102,7 +112,7 @@ features:
   # Enable NPC glowing (requires Citizens plugin)
   npc-glow: true
 
-  # Auto-save data on plugin disable
+  # Save edits after 100 ticks and flush on shutdown. If false, use /ge save.
   auto-save: true
 
   # Enable command aliases (/gb, /ugb, etc.)
@@ -110,7 +120,7 @@ features:
 
 # Performance Settings
 performance:
-  # Maximum glowing blocks per player (private mode)
+  # Maximum saved private block effects per player (0 disables new entries)
   max-blocks-per-player: 1000
 
   # Maximum global glowing blocks (affects all players)

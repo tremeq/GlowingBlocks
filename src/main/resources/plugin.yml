@@ -1,7 +1,7 @@
 name: GlowingBlocks
-version: 1.0.0
-main: fr.skytasul.glowingentities.GlowingEntitiesPlugin
-api-version: 1.21
+version: 2.0.0
+main: com.tremeq.glowingblocks.GlowingEntitiesPlugin
+api-version: '1.19'
 author: TremeQ
 description: A Paper plugin providing commands to use the GlowingEntities API for making blocks and NPCs glow.
 website: https://github.com/tremeq/GlowingEntities
@@ -9,25 +9,25 @@ website: https://github.com/tremeq/GlowingEntities
 commands:
   glowblock:
     description: Make the block you are looking at glow
-    usage: /<command> [color|rainbow] [global]
+    usage: /<command> [color|rainbow] [private|global]
     aliases: [gb, glow]
     permission: glowingblocks.glowblock
 
   unglowblock:
     description: Stop the block you are looking at from glowing
-    usage: /<command>
+    usage: /<command> [private|global]
     aliases: [ugb, unglow]
     permission: glowingblocks.unglowblock
 
   glownpc:
     description: Make a Citizens NPC glow
-    usage: /<command> <npc_id|name> [color|rainbow]
+    usage: /<command> <npc_id|name> [color|rainbow] [private|global]
     aliases: [gnpc]
     permission: glowingblocks.glownpc
 
   unglownpc:
     description: Stop a Citizens NPC from glowing
-    usage: /<command> <npc_id|name>
+    usage: /<command> <npc_id|name> [private|global]
     aliases: [ugnpc]
     permission: glowingblocks.unglownpc
 
@@ -40,6 +40,9 @@ commands:
 softdepend: [Citizens]
 
 permissions:
+  glowingblocks.global:
+    description: Allows creating and removing global block and NPC effects
+    default: op
   glowingblocks.glowblock:
     description: Allows making blocks glow
     default: op
